@@ -56,7 +56,7 @@ ATM_Interface/
 ## ▶️ How to Compile & Run
 
 cd ATM_Interface
-javac -d out src/com/oasis/atm/**/*.java
+javac -d out (Get-ChildItem -Recurse -Filter *.java src | % FullName)
 java -cp out com.oasis.atm.Main
 
 ---
@@ -132,7 +132,7 @@ Place MySQL Connector JAR inside lib/
 ## ▶️ Compile & Run
 
 cd Digital_Library
-javac -cp "lib/*" -d out src/com/oasis/library/**/*.java
+javac -d out (Get-ChildItem -Recurse -Filter *.java src | % FullName)
 java -cp "out;lib/*" com.oasis.library.controller.LibraryApp
 
 ---
