@@ -1,118 +1,158 @@
 # OASIS Java Projects — Internship Portfolio
-## Project 1: ATM Interface | Project 2: Digital Library
+# Submitted for Oasis Infobyte Java Development Internship
+# Author: Shivshankar D. Mali
+# Tech Focus: Core Java, OOP, File Handling, Encryption, JDBC, MySQL, Layered Architecture
 
----
+--------------------------------------------------------------------------------
 
-## PROJECT 1: ATM Interface (Console-Based)
+PROJECT 1: ATM Interface (Console-Based)
 
-### Tech Stack
-- Core Java 17+, File I/O, AES-256 Encryption, Serialization
+Tech Stack:
+- Java 17+
+- File I/O (Serialization)
+- AES-256 Encryption (CBC + Random IV)
+- Collections Framework
 
-### Folder Structure
-```
+Folder Structure:
 ATM_Interface/
 ├── src/com/oasis/atm/
-│   ├── model/         → User.java, Account.java, Transaction.java
-│   ├── security/      → AESUtil.java
-│   ├── repository/    → FileRepo.java
-│   ├── service/       → ATMOperations.java (interface), ATMService.java, AuthService.java
+│   ├── model/
+│   ├── security/
+│   ├── repository/
+│   ├── service/
 │   └── Main.java
-└── data/
-    └── users.dat      (auto-created on first run)
-```
+├── screenshots/
+└── data/ (auto-created)
 
-### How to Compile & Run
-```bash
+How to Compile & Run (CMD):
 cd ATM_Interface
-javac -d out (Get-ChildItem -Recurse -Filter *.java src | % FullName)
+javac -d out src/com/oasis/atm/**/*.java
 java -cp out com.oasis.atm.Main
-```
 
-### OOP Concepts Map
-| Concept           | Where                      |
-|-------------------|----------------------------|
-| Encapsulation     | User, Account, Transaction |
-| Abstraction       | ATMOperations interface     |
-| Polymorphism      | ATMService implements ATMOperations |
-| Composition       | ATMService uses FileRepo    |
-| Exception Handling| FileRepo, ATMService        |
-| File I/O          | FileRepo (ObjectStream)     |
-| Encryption        | AESUtil (AES-256 CBC + random IV) |
-| Collections       | ArrayList in Account        |
+Key Features:
+- Secure Login
+- Balance Inquiry
+- Deposit & Withdrawal
+- Money Transfer
+- Transaction History
+- Persistent File Storage
+- AES-256 Encrypted Credentials
 
----
+OOP Concepts Demonstrated:
+- Encapsulation → User, Account, Transaction
+- Abstraction → ATMOperations Interface
+- Polymorphism → ATMService implements ATMOperations
+- Composition → ATMService uses FileRepo
+- Exception Handling → Service & Repository layer
+- File I/O → Object Streams
+- Encryption → AESUtil
+- Collections → ArrayList
 
-## PROJECT 2: Digital Library (JDBC + MySQL)
+Output Screenshots:
+- Register & Login
+- Balance, Deposit & Withdrawal
+- Transfer, Transaction History & Exit
 
-### Tech Stack
-- Core Java 17+, JDBC, MySQL 8.x, Java Date API
+--------------------------------------------------------------------------------
 
-### Folder Structure
-```
+PROJECT 2: Digital Library Management System (JDBC + MySQL)
+
+Tech Stack:
+- Java 17+
+- JDBC (Prepared Statements)
+- MySQL 8.x
+- Java Date API
+- Layered Architecture
+
+Folder Structure:
 Digital_Library/
 ├── src/com/oasis/library/
-│   ├── model/      → User.java (abstract), Admin.java, Member.java, Book.java, Transaction.java
-│   ├── dao/        → UserDAO.java, BookDAO.java, TransactionDAO.java
-│   ├── service/    → LibraryService.java, AuthService.java, EmailService.java
-│   ├── util/       → DBConfig.java (Singleton)
-│   └── controller/ → LibraryApp.java
-└── resources/
-    └── db_schema.sql
-```
+│   ├── model/
+│   ├── dao/
+│   ├── service/
+│   ├── util/
+│   └── controller/
+├── resources/db_schema.sql
+└── screenshots/
 
-### Setup Steps
-1. Install MySQL and create the database:
-   ```bash
-   mysql -u root -p < resources/db_schema.sql
-   ```
+Setup Instructions:
 
-2. Update DB password in `DBConfig.java`:
-   ```java
-   private static final String PASSWORD = "your_actual_password";
-   ```
+1. Create Database:
+mysql -u root -p < resources/db_schema.sql
 
-3. Download MySQL Connector/J JAR from:
-   https://dev.mysql.com/downloads/connector/j/
+2. Update DBConfig.java password:
+private static final String PASSWORD = "your_password";
 
-4. Compile and run:
-   ```bash
-   cd Digital_Library
-   javac -cp "lib/*" -d out (Get-ChildItem -Recurse -Filter *.java src | % FullName)
-   java -cp "out;lib/*" com.oasis.library.controller.LibraryApp
-### Default Login Credentials
-| Role   | Email                      | Password  |
-|--------|----------------------------|-----------|
-| Admin  | Shiv@oasislibrary.com     | admin123  |
-| Member | Shankar5@mail.com             | Shankar123  |
-| Member | Kamini@mail.com               | Kamu123    |
+3. Add MySQL Connector JAR inside lib/
 
-### OOP & JDBC Concepts Map
-| Concept           | Where                           |
-|-------------------|---------------------------------|
-| Abstraction       | Abstract User class             |
-| Inheritance       | Admin, Member extend User       |
-| Polymorphism      | displayMenu() overridden        |
-| Encapsulation     | All model classes               |
-| Singleton Pattern | DBConfig                        |
-| JDBC PreparedStmt | All DAO classes (SQL injection prevention) |
-| Full CRUD         | BookDAO (INSERT/SELECT/UPDATE/DELETE) |
-| Java Date API     | Fine calculation in LibraryService |
-| Layered Design    | model → dao → service → controller |
+4. Compile & Run:
+cd Digital_Library
+javac -cp "lib/*" -d out src/com/oasis/library/**/*.java
+java -cp "out;lib/*" com.oasis.library.controller.LibraryApp
 
-### Fine Calculation Logic
-- Loan period: 14 days
-- Fine rate: ₹5 per overdue day
-- Logic lives in `LibraryService.calculateFine()` — NOT in the DAO
+Default Login Credentials:
 
----
+Admin:
+Email: Shiv@oasislibrary.com
+Password: admin123
 
-## Interview Tips
+Member:
+Email: Shankar5@mail.com
+Password: Shankar123
 
-**Q: Why file storage for ATM but MySQL for Library?**
-> ATM is a standalone, single-user machine — no network needed, file serialization is sufficient. Library has relational data (users borrowing books, transactions with foreign keys) that benefits from SQL joins and structured queries.
+Core Features:
 
-**Q: Why random IV in AESUtil?**
-> A static IV means identical PINs encrypt to identical ciphertext — an attacker can tell two users share the same PIN without decrypting. A random IV per encryption guarantees the ciphertext is unique every time.
+Admin Module:
+- Add / Update / Delete Books
+- View All Books
+- View All Members
+- View Active Transactions
+- Generate Fine Report
 
-**Q: Why is fine calculation in LibraryService instead of TransactionDAO?**
-> DAOs should only handle persistence (CRUD). Business rules like "₹5/day after 14 days" are domain logic and belong in the service layer, making them easy to change without touching database code.
+Member Module:
+- Register & Login
+- Search Books
+- Issue Book
+- Return Book
+- View Transactions
+- Check Pending Fines
+- Send Query to Admin (Simulated Email)
+
+Fine Calculation Logic:
+- Loan Period: 14 Days
+- Fine Rate: Rs.5 per overdue day
+- Implemented in LibraryService.calculateFine()
+
+OOP & JDBC Concepts Demonstrated:
+- Abstraction → Abstract User class
+- Inheritance → Admin & Member extend User
+- Polymorphism → Overridden methods
+- Encapsulation → Model classes
+- Singleton Pattern → DBConfig
+- Prepared Statements → SQL injection prevention
+- Full CRUD → BookDAO
+- Layered Architecture → model → dao → service → controller
+- Date API → Fine calculation
+
+Output Screenshots:
+- Admin Login & Add Book
+- View Books & Members
+- Fine Report
+- Active Transactions
+- Member Register & Login
+- Search & Issue Books
+- Transactions & Pending Fines
+- Query to Admin & Logout
+
+--------------------------------------------------------------------------------
+
+Conclusion:
+
+This internship portfolio demonstrates:
+- Strong OOP principles
+- Secure file handling & encryption
+- JDBC & MySQL integration
+- Clean layered backend architecture
+- Console-based enterprise system design
+
+Developed as part of AICTE OIB-SIP Java Development Internship.
