@@ -2,10 +2,9 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Java-17+-red?style=for-the-badge&logo=java" />
-  <img src="https://img.shields.io/badge/MySQL-8.x-blue?style=for-the-badge&logo=mysql" />
+  <img src="https://img.shields.io/badge/MySQL-blue?style=for-the-badge&logo=mysql" />
   <img src="https://img.shields.io/badge/JDBC-PreparedStatements-green?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Security-AES--256-orange?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Architecture-Layered-purple?style=for-the-badge" />
 </p>
 
 ---
