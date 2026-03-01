@@ -21,3 +21,9 @@ Thumbs.db
 
 # runtime data (optional)
 *.dat
+
+echo Digital_Library/src/com/oasis/library/util/DBConfig.java>> .gitignore
+
+echo Digital_Library/src/com/oasis/library/util/DBConfig.java>> .gitignore
+
+.gitignore
