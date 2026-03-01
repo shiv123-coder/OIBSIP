@@ -4,3 +4,20 @@ out/
 .idea/
 .vscode/
 *.log
+# Java build outputs
+*.class
+out/
+bin/
+target/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# runtime data (optional)
+*.dat
