@@ -1,32 +1,30 @@
 # 🚀 OASIS Java Projects — Internship Portfolio
 
 <p align="center">
-
-![Java](https://img.shields.io/badge/Java-17+-red?style=for-the-badge&logo=java)
-![MySQL](https://img.shields.io/badge/MySQL-8.x-blue?style=for-the-badge&logo=mysql)
-![JDBC](https://img.shields.io/badge/JDBC-PreparedStatements-green?style=for-the-badge)
-![Encryption](https://img.shields.io/badge/Security-AES--256-orange?style=for-the-badge)
-![Architecture](https://img.shields.io/badge/Architecture-Layered-purple?style=for-the-badge)
-
+  <img src="https://img.shields.io/badge/Java-17+-red?style=for-the-badge&logo=java" />
+  <img src="https://img.shields.io/badge/MySQL-8.x-blue?style=for-the-badge&logo=mysql" />
+  <img src="https://img.shields.io/badge/JDBC-PreparedStatements-green?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Security-AES--256-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Architecture-Layered-purple?style=for-the-badge" />
 </p>
 
 ---
 
-## 👨‍💻 Author  
-**Shivshankar D. Mali**  
-Submitted for **Oasis Infobyte Java Development Internship (OIB-SIP)**  
+## 👨‍💻 Author
+Shivshankar D. Mali  
+Submitted for Oasis Infobyte Java Development Internship (OIB-SIP)
 
 ---
 
 # 📌 About This Portfolio
 
-This repository contains two complete Java-based backend systems demonstrating:
+This repository contains two complete Java backend systems demonstrating:
 
-- ✅ Strong OOP Principles  
-- ✅ Secure File Handling & Encryption  
-- ✅ JDBC + MySQL Integration  
-- ✅ Layered Architecture Design  
-- ✅ Console-Based Enterprise Application Development  
+- Strong OOP Principles
+- Secure File Handling & Encryption
+- JDBC + MySQL Integration
+- Layered Architecture Design
+- Console-Based Enterprise Application Development
 
 ---
 
@@ -42,72 +40,64 @@ This repository contains two complete Java-based backend systems demonstrating:
 
 ## 📂 Folder Structure
 
-
 ATM_Interface/
 │
 ├── src/com/oasis/atm/
-│ ├── model/
-│ ├── security/
-│ ├── repository/
-│ ├── service/
-│ └── Main.java
+│   ├── model/
+│   ├── security/
+│   ├── repository/
+│   ├── service/
+│   └── Main.java
 │
 ├── screenshots/
 └── data/ (auto-created)
 
-
 ---
 
-## ▶️ How to Run
+## ▶️ How to Compile & Run
 
-```bash
 cd ATM_Interface
 javac -d out src/com/oasis/atm/**/*.java
 java -cp out com.oasis.atm.Main
-⭐ Key Features
 
-🔐 Secure Login System
+---
 
-💰 Balance Inquiry
+## ⭐ Key Features
 
-➕ Deposit & Withdrawal
+- Secure Login
+- Balance Inquiry
+- Deposit & Withdrawal
+- Money Transfer
+- Transaction History
+- Persistent File Storage
+- AES-256 Encrypted Credentials
 
-🔄 Money Transfer
+---
 
-📜 Transaction History
+## 🧠 OOP Concepts Implemented
 
-💾 Persistent File Storage
+- Encapsulation → User, Account, Transaction
+- Abstraction → ATMOperations Interface
+- Polymorphism → ATMService implements ATMOperations
+- Composition → ATMService uses FileRepo
+- Exception Handling → Service & Repository Layers
+- Collections → ArrayList
 
-🔒 AES-256 Encrypted Credentials
+---
 
-🧠 OOP Concepts Implemented
+# 📚 Project 2: Digital Library Management System (JDBC + MySQL)
 
-Encapsulation → User, Account, Transaction
+## 🔹 Tech Stack
+- Java 17+
+- JDBC (Prepared Statements)
+- MySQL 8.x
+- Java Date API
+- Layered Architecture
 
-Abstraction → ATMOperations Interface
+---
 
-Polymorphism → ATMService implements ATMOperations
+## 📂 Folder Structure
 
-Composition → ATMService uses FileRepo
-
-Exception Handling → Service & Repository Layers
-
-Collections → ArrayList
-
-📚 Project 2: Digital Library Management System (JDBC + MySQL)
-🔹 Tech Stack
-
-Java 17+
-
-JDBC (Prepared Statements)
-
-MySQL 8.x
-
-Java Date API
-
-Layered Architecture
-
-📂 Folder Structure
 Digital_Library/
 │
 ├── src/com/oasis/library/
@@ -119,108 +109,98 @@ Digital_Library/
 │
 ├── resources/db_schema.sql
 └── screenshots/
-⚙️ Setup Instructions
-1️⃣ Create Database
-mysql -u root -p < resources/db_schema.sql
-2️⃣ Update DB Password
 
-Inside DBConfig.java:
+---
+
+## ⚙️ Setup Instructions
+
+1. Create Database
+
+mysql -u root -p < resources/db_schema.sql
+
+2. Update DB Password
+
+Edit DBConfig.java:
 
 private static final String PASSWORD = "your_password";
-3️⃣ Add MySQL Connector
+
+3. Add MySQL Connector
 
 Place MySQL Connector JAR inside lib/
 
-▶️ Compile & Run
+---
+
+## ▶️ Compile & Run
+
 cd Digital_Library
 javac -cp "lib/*" -d out src/com/oasis/library/**/*.java
 java -cp "out;lib/*" com.oasis.library.controller.LibraryApp
-🔐 Default Login Credentials
-👨‍💼 Admin
 
+---
+
+## 🔐 Default Login Credentials
+
+Admin:
 Email: Shiv@oasislibrary.com
 Password: admin123
 
-👤 Member
-
+Member:
 Email: Shankar5@mail.com
 Password: Shankar123
 
-⭐ Core Features
-🛠 Admin Module
+---
 
-Add / Update / Delete Books
+## ⭐ Core Features
 
-View All Books
+Admin Module:
+- Add / Update / Delete Books
+- View All Books
+- View All Members
+- View Active Transactions
+- Generate Fine Report
 
-View All Members
+Member Module:
+- Register & Login
+- Search Books
+- Issue Book
+- Return Book
+- View Transactions
+- Check Pending Fines
+- Send Query to Admin
 
-View Active Transactions
+---
 
-Generate Fine Report
+## 💰 Fine Calculation Logic
 
-👤 Member Module
-
-Register & Login
-
-Search Books
-
-Issue Book
-
-Return Book
-
-View Transactions
-
-Check Pending Fines
-
-Send Query to Admin
-
-💰 Fine Calculation Logic
-
-Loan Period: 14 Days
-
-Fine Rate: ₹5 per overdue day
-
+Loan Period: 14 Days  
+Fine Rate: ₹5 per overdue day  
 Implemented in: LibraryService.calculateFine()
 
-🧠 OOP & JDBC Concepts Demonstrated
+---
 
-Abstraction → Abstract User class
+## 🧠 OOP & JDBC Concepts Demonstrated
 
-Inheritance → Admin & Member extend User
+- Abstraction → Abstract User class
+- Inheritance → Admin & Member extend User
+- Polymorphism → Overridden methods
+- Encapsulation → Model classes
+- Singleton Pattern → DBConfig
+- Prepared Statements → SQL Injection Prevention
+- Full CRUD Operations → BookDAO
+- Layered Architecture → model → dao → service → controller
 
-Polymorphism → Overridden methods
+---
 
-Encapsulation → Model classes
+# 🎯 Internship Outcome
 
-Singleton Pattern → DBConfig
+This internship portfolio demonstrates:
 
-Prepared Statements → SQL Injection Prevention
+- Enterprise-Level Console Application Design
+- Secure Authentication & Encryption
+- Real-World Database Integration
+- Clean Code & Structured Architecture
+- Strong Core Java & JDBC Understanding
 
-Full CRUD Operations → BookDAO
-
-Layered Architecture → model → dao → service → controller
-
-📸 Screenshots
-
-Screenshots are available inside each project's screenshots/ folder.
-
-🎯 Internship Outcome
-
-Through these projects, I demonstrated:
-
-✔ Enterprise-Level Console Application Design
-
-✔ Secure Authentication & Encryption
-
-✔ Real-World Database Integration
-
-✔ Clean Code & Structured Architecture
-
-✔ Strong Understanding of Core Java
-
-<p align="center">
+---
 
 ⭐ If you found this project useful, consider giving it a star!
-
-</p> ```
